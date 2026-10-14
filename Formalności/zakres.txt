@@ -1,0 +1,7 @@
+Własna grafika (UI)
+Duża, skalowalna plansza (płynny zoom, przesuwanie widoku)
+Timer tury
+Gra z komputerem (poziomy trudności)
+Gra wieloosobowa przez sieć (zaproszenia, losowy przeciwnik, powrót do partii po rozłączeniu)
+Konta użytkowników i ranking (rating Elo)
+Czat w trakcie partii
