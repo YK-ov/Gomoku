@@ -1,0 +1,245 @@
+package Match;
+
+import GameCore.*;
+import UsersAuthAndStatistics.User;
+
+import java.io.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.*;
+
+/**
+ * 
+ */
+public abstract class Match {
+
+    /**
+     * Default constructor
+     */
+    public Match() {
+    }
+
+    /**
+     * 
+     */
+    protected boolean isRated;
+
+    /**
+     * 
+     */
+    private List<Player> playersInMatch;
+
+    /**
+     * 
+     */
+    private MatchStatus status;
+
+    /**
+     * 
+     */
+    private ColorType currentTurn;
+
+    /**
+     * 
+     */
+    private List<Move> moveHistory;
+
+    /**
+     * 
+     */
+    private List<MatchListener> listeners;
+
+    /**
+     * 
+     */
+    private LocalDateTime startedAt;
+
+    /**
+     * 
+     */
+    private LocalDateTime endedAt;
+
+    /**
+     * 
+     */
+    private MatchEndReason endReason;
+
+    /**
+     * 
+     */
+    private int maxMissedTurns;
+
+    /**
+     * 
+     */
+    private Board board;
+
+    /**
+     * 
+     */
+    private Timer timer;
+
+    /**
+     * 
+     */
+    private MatchResult result;
+
+    /**
+     * 
+     */
+    private String matchId;
+
+    /**
+     * 
+     */
+    private SpectateManager spectateManager;
+
+
+
+
+
+    /**
+     * @param timePerRound 
+     * @param isRated 
+     * @param sMr
+     */
+    public Match(Duration timePerRound, boolean isRated, SpectateManager sMr) {
+        // TODO implement here
+    }
+
+    /**
+     * @param player 
+     * @param move 
+     * @return
+     */
+    public MoveResult submitMove(Player player, Move move) {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param result 
+     * @return
+     */
+    public void finish(MatchResult result) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param listener 
+     * @return
+     */
+    public void addListener(MatchListener listener) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param listener 
+     * @return
+     */
+    public void removeListener(MatchListener listener) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void handleDisconnect(Player player) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void handleReconnect(Player player) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void forfeit(Player player) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @return
+     */
+    public Player getCurrentPlayer() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param user 
+     * @return
+     */
+    public Player getPlayerByUser(User user) {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void switchTurn(Player player) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @param result 
+     * @return
+     */
+    protected abstract int applyRatings(MatchResult result);
+
+    //protected abstract int applyRatings(MatchResult result);
+
+    /**
+     * @return
+     */
+    protected abstract void afterMove();
+
+    /**
+     * @return
+     */
+    public void checkTimer() {
+        // TODO implement here
+
+    }
+
+    /**
+     * @return
+     */
+    public void skipTurn() {
+        // TODO implement here
+
+    }
+
+    /**
+     * @return
+     */
+    public Duration getTimeRemaining() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @return
+     */
+    public void start() {
+        // TODO implement here
+
+    }
+
+}

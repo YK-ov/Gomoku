@@ -30111,7 +30111,8 @@
 								"$ref": "AAAAAAGhlt4PwMWIHfI="
 							},
 							"name": "spectators: Map<String, Map<Admin, MatchListener>>",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
