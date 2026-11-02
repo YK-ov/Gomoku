@@ -72,4 +72,12 @@ public class Leaderboard {
         return 0;
     }
 
+    public void addStatistics(Statistics statistics) {
+
+    }
+
+    public void removeStatistics(Statistics statistics) {
+
+    }
+
 }

@@ -5,6 +5,7 @@ import GameCore.Move;
 import Match.Match;
 import Match.MatchStatus;
 import UsersAuthAndStatistics.Account;
+import Match.MatchListener;
 
 import java.io.*;
 import java.util.*;
@@ -12,7 +13,7 @@ import java.util.*;
 /**
  * 
  */
-public class MatchChat extends Chat {
+public class MatchChat extends Chat implements MatchListener {
 
     /**
      * Default constructor

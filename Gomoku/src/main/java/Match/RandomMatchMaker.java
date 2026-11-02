@@ -40,7 +40,9 @@ public class RandomMatchMaker {
      * @param leaderboard
      */
     public RandomMatchMaker(SpectateManager spectateManager, Leaderboard leaderboard) {
-        // TODO implement here
+        this.currentQueue = new Queue();
+        this.spectateManager = spectateManager;
+        this.leaderboard = leaderboard;
     }
 
     /**

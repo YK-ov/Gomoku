@@ -5,6 +5,7 @@ import GameCore.Move;
 import Match.Match;
 import UsersAuthAndStatistics.Account;
 import Match.MatchStatus;
+import Match.MatchListener;
 
 import java.io.*;
 import java.util.*;
@@ -12,7 +13,7 @@ import java.util.*;
 /**
  * 
  */
-public class Lobby {
+public class Lobby implements MatchListener {
 
 //    /**
 //     * Default constructor

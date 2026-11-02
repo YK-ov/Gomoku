@@ -104,7 +104,9 @@ public abstract class Match {
      * @param sMr
      */
     public Match(Duration timePerRound, boolean isRated, SpectateManager sMr) {
-        // TODO implement here
+        this.board = new Board();
+        timer = new Timer(timePerRound);
+        playersInMatch = new ArrayList<>(2);
     }
 
     /**

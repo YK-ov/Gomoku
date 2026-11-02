@@ -10,22 +10,6 @@ import java.util.*;
 /**
  * 
  */
-public class MoveStrategy {
-
-    /**
-     * Default constructor
-     */
-    public MoveStrategy() {
-    }
-
-    /**
-     * @param board 
-     * @param color 
-     * @return
-     */
-    public Move chooseMove(Board board, ColorType color) {
-        // TODO implement here
-        return null;
-    }
-
+public interface MoveStrategy {
+    public Move chooseMove(Board board, ColorType color);
 }

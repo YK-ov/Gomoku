@@ -35,7 +35,14 @@ public class ComputerPlayer extends Player {
      * @param difficulty
      */
     public ComputerPlayer(ColorType color, Difficulty difficulty) {
-        // TODO implement here
+        MoveStrategy strategy = new MoveStrategy() {
+            @Override
+            public Move chooseMove(Board board, ColorType color) {
+                return null;
+            }
+        }; // composition
+        this.strategy = strategy;
+
     }
 
     /**

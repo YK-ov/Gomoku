@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * 
  */
-public class SpectateManager {
+public class SpectateManager implements MatchListener{
 
 //    /**
 //     * Default constructor

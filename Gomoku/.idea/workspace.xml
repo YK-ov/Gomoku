@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed7de67-7bd3-4546-ac44-b8d9d96986cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Gomoku.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AI/MoveStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI/MoveStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/MatchChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/MatchChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/ComputerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/ComputerPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/Match.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/MatchListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/MatchListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/RandomMatchMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/RandomMatchMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/SpectateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/SpectateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Leaderboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Logical Model/newProject.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../Logical Model/newProject.mdj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1793621923987</updated>
-      <workItem from="1793621926569" duration="1873000" />
+      <workItem from="1793621926569" duration="4891000" />
     </task>
     <servers />
   </component>
