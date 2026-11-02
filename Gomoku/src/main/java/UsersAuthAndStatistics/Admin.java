@@ -19,7 +19,7 @@ public class Admin extends Account {
      * @param hashedPassword
      */
     public Admin(String nickName, String hashedPassword) {
-        // TODO implement here
+        super(nickName, hashedPassword);
     }
 
     /**

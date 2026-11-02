@@ -4,18 +4,15 @@ import GameCore.Board;
 import GameCore.ColorType;
 import GameCore.Move;
 
-import java.io.*;
-import java.util.*;
-
 /**
  * 
  */
-public class HeuristicStretegy {
+public class HeuristicsStrategy implements MoveStrategy {
 
     /**
      * Default constructor
      */
-    public HeuristicStretegy() {
+    public HeuristicsStrategy() {
     }
 
     /**

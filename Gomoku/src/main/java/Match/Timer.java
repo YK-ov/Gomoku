@@ -3,6 +3,7 @@ package Match;
 import java.io.*;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -41,17 +42,18 @@ public class Timer {
      * @param timePerRound
      */
     public Timer(Duration timePerRound) {
-        // TODO implement here
+        this.timerPerRound = timePerRound;
     }
 
     /**
      * @return
      */
     public void start() {
-        // TODO implement here
+        this.deadline = Instant.now().plus(timerPerRound);
 
+        //System.out.println(deadline);
     }
-
+            // refresh function
     /**
      * @return
      */
@@ -73,6 +75,38 @@ public class Timer {
      */
     public void resume() {
         // TODO implement here
+    }
+
+    public Duration getTimerPerRound() {
+        return timerPerRound;
+    }
+
+    public Instant getDeadline() {
+        return deadline;
+    }
+
+    public Duration getRemaining() {
+        return remaining;
+    }
+
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public void setTimerPerRound(Duration timerPerRound) {
+        this.timerPerRound = timerPerRound;
+    }
+
+    public void setDeadline(Instant deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setRemaining(Duration remaining) {
+        this.remaining = remaining;
+    }
+
+    public void setRunning(boolean running) {
+        isRunning = running;
     }
 
 }

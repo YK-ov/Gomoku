@@ -14,6 +14,7 @@ public abstract class Chat {
      * Default constructor
      */
     public Chat() {
+        this.messages = new ArrayList<>();
     }
 
     /**

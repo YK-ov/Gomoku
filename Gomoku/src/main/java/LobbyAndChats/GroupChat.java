@@ -26,21 +26,21 @@ public class GroupChat extends Chat {
      * 
      */
     public GroupChat() {
-        // TODO implement here
+        this.members = new ArrayList<>();
     }
 
     /**
      * @param account
      */
     public void addMember(Account account) {
-        // TODO implement here
+        members.add(account);
     }
 
     /**
      * @param account
      */
     public void removeMember(Account account) {
-        // TODO implement here
+        members.remove(account);
     }
 
     /**

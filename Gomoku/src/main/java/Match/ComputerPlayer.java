@@ -1,7 +1,6 @@
 package Match;
 
-import AI.Difficulty;
-import AI.MoveStrategy;
+import AI.*;
 import GameCore.Board;
 import GameCore.ColorType;
 import GameCore.Move;
@@ -35,14 +34,10 @@ public class ComputerPlayer extends Player {
      * @param difficulty
      */
     public ComputerPlayer(ColorType color, Difficulty difficulty) {
-        MoveStrategy strategy = new MoveStrategy() {
-            @Override
-            public Move chooseMove(Board board, ColorType color) {
-                return null;
-            }
-        }; // composition
-        this.strategy = strategy;
+        super(color);
 
+        this.difficulty = difficulty;
+        addStrategyBasedOnDifficulty();
     }
 
     /**
@@ -58,8 +53,15 @@ public class ComputerPlayer extends Player {
      * @return
      */
     private void addStrategyBasedOnDifficulty() {
-        // TODO implement here
-
+        if (difficulty == Difficulty.Easy){
+            this.strategy = new MinMaxStrategy();
+        }
+        else if (difficulty == Difficulty.Medium){
+            this.strategy = new RandomStrategy();
+        }
+        else if (difficulty == Difficulty.Hard){
+            this.strategy = new HeuristicsStrategy();
+        }
     }
 
 }

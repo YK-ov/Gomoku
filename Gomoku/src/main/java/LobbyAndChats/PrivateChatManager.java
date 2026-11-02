@@ -26,7 +26,7 @@ public class PrivateChatManager {
      * 
      */
     public PrivateChatManager() {
-        // TODO implement here
+        privateChats = new ArrayList<>();
     }
 
     /**

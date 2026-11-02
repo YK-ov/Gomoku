@@ -6,15 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="2ed7de67-7bd3-4546-ac44-b8d9d96986cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AI/MoveStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI/MoveStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AI/HeuristicStretegy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI/HeuristicsStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AI/MinMaxStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI/MinMaxStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AI/RandomStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AI/RandomStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameCore/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameCore/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameCore/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameCore/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/ActiveAccountsBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/ActiveAccountsBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/GroupChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/GroupChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Invitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Invitation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Lobby.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/MatchChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/MatchChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/PrivateChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/PrivateChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LobbyAndChats/PrivateChatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LobbyAndChats/PrivateChatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/ComputerMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/ComputerMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/ComputerMatchMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/ComputerMatchMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Match/ComputerPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/ComputerPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/HumanMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/HumanMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/HumanPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Match/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Match/MatchListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/MatchListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Match/RandomMatchMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/RandomMatchMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/Queue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Match/SpectateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/SpectateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Match/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Match/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Leaderboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/MatchRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/MatchRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/RatingCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/RatingCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UsersAuthAndStatistics/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Logical Model/Lobby and chats class diagram.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Logical Model/Lobby and chats class diagram.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Logical Model/newProject.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/../Logical Model/newProject.mdj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1793621923987</updated>
-      <workItem from="1793621926569" duration="4891000" />
+      <workItem from="1793621926569" duration="10887000" />
     </task>
     <servers />
   </component>

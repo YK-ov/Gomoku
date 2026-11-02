@@ -39,7 +39,9 @@ public class Message {
      * @param sentAt
      */
     public Message(Account sender, String text, LocalDateTime sentAt) {
-        // TODO implement here
+        this.sender = sender;
+        this.text = text;
+        this.sentAt = sentAt;
     }
 
 }

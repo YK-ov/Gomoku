@@ -31,7 +31,7 @@ public class MatchChat extends Chat implements MatchListener {
      * @param match
      */
     public MatchChat(Match match) {
-        // TODO implement here
+        this.match = match;
     }
 
     /**

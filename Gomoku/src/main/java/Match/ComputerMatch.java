@@ -28,7 +28,13 @@ public class ComputerMatch extends Match {
      * @param sM
      */
     public ComputerMatch(Duration timePerRound, boolean isRated, User user, ColorType userColor, ColorType computerColor, Difficulty difficulty, SpectateManager sM) {
-        // TODO implement here
+        super(timePerRound, isRated, sM);
+
+        HumanPlayer humanPlayer = new HumanPlayer(userColor, user);
+        addPlayer(humanPlayer);
+
+        ComputerPlayer computerPlayer = new ComputerPlayer(computerColor, difficulty);
+        addPlayer(computerPlayer);
     }
 
     /**

@@ -26,7 +26,7 @@ public abstract class Player {
      * @param color
      */
     public Player(ColorType color) {
-        // TODO implement here
+        this.color = color;
     }
 
 }

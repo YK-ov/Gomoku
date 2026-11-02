@@ -28,7 +28,8 @@ public class Board {
      * @param size
      */
     public Board(int size) {
-        // TODO implement here
+        this.size = size;
+        this.cells = new ColorType[size][size];
     }
 
     /**

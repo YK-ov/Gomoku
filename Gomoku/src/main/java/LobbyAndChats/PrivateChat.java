@@ -32,7 +32,8 @@ public class PrivateChat extends Chat {
      * @param second
      */
     public PrivateChat(Account first, Account second) {
-        // TODO implement here
+        this.first = first;
+        this.second = second;
     }
 
     /**

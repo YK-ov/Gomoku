@@ -66,7 +66,8 @@ public class Invitation {
      * @param invitee
      */
     public Invitation(User inviter, User invitee) {
-        // TODO implement here
+        this.inviter = inviter;
+        this.invitee = invitee;
     }
 
 }

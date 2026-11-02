@@ -25,7 +25,7 @@ public class Leaderboard {
      * 
      */
     public Leaderboard() {
-        // TODO implement here
+        this.statisticsList = new ArrayList<>();
     }
 
     /**

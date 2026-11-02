@@ -29,7 +29,13 @@ public class HumanMatch extends Match {
      * @param sM
      */
     public HumanMatch(Duration timePerRound, boolean isRated, User firstUser, User secondUser, ColorType firstColor, ColorType secondColor, SpectateManager sM) {
-        // TODO implement here
+        super(timePerRound, isRated, sM);
+
+        HumanPlayer firstPlayer = new HumanPlayer(firstColor, firstUser);
+        HumanPlayer secondPlayer = new HumanPlayer(secondColor, secondUser);
+
+        addPlayer(firstPlayer);
+        addPlayer(secondPlayer);
     }
 
     /**

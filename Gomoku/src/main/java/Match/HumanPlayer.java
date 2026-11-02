@@ -28,7 +28,8 @@ public class HumanPlayer extends Player {
      * @param user
      */
     public HumanPlayer(ColorType color, User user) {
-        // TODO implement here
+        super(color);
+        this.user = user;
     }
 
     /**

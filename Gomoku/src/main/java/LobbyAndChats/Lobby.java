@@ -31,14 +31,19 @@ public class Lobby implements MatchListener {
      */
     private Map<String, MatchChat> matchChats;
 
+    private LobbyChat lobbyChat;
 
-
+    private ActiveAccountsBoard activeAccountsBoard;
 
     /**
      * 
      */
     public Lobby() {
-        // TODO implement here
+        this.activeMatches = new ArrayList<Match>();
+        this.lobbyChat = new LobbyChat();
+        this.activeAccountsBoard = new ActiveAccountsBoard();
+
+        this.matchChats = new HashMap<>();
     }
 
     /**

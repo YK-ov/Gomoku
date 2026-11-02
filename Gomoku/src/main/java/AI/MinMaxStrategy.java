@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * 
  */
-public class MinMaxStrategy {
+public class MinMaxStrategy implements MoveStrategy {
 
     /**
      * Default constructor

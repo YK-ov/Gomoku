@@ -40,7 +40,7 @@ public class Statistics {
      * @param account
      */
     public Statistics(Account account) {
-        // TODO implement here
+        this.account = account;
     }
 
     /**

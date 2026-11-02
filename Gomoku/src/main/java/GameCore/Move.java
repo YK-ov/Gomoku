@@ -41,7 +41,9 @@ public class Move {
      * @param color
      */
     public Move(int x, int y, ColorType color) {
-        // TODO implement here
+        this.xCoordinate = x;
+        this.yCoordinate = y;
+        this.color = color;
     }
 
 }

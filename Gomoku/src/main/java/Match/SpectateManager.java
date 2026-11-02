@@ -36,7 +36,8 @@ public class SpectateManager implements MatchListener{
      * 
      */
     public SpectateManager() {
-        // TODO implement here
+        this.spectators = new HashMap<>();
+        this.activeMatches = new HashMap<>();
     }
 
     /**

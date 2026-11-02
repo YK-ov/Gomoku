@@ -32,7 +32,8 @@ public class RatingCalculator {
      * @param leaderboard
      */
     public RatingCalculator(int kFactor, Leaderboard leaderboard) {
-        // TODO implement here
+        this.kFactor = kFactor;
+        this.leaderboard = leaderboard;
     }
 
     /**

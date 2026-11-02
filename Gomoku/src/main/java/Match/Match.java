@@ -105,8 +105,14 @@ public abstract class Match {
      */
     public Match(Duration timePerRound, boolean isRated, SpectateManager sMr) {
         this.board = new Board();
-        timer = new Timer(timePerRound);
-        playersInMatch = new ArrayList<>(2);
+        this.playersInMatch = new ArrayList<>(2);
+        this.moveHistory = new ArrayList<>();
+        this.listeners = new ArrayList<>();
+
+        this.timer = new Timer(timePerRound);
+        this.isRated = isRated;
+        this.spectateManager = sMr;
+        this.matchId = UUID.randomUUID().toString();
     }
 
     /**
@@ -232,8 +238,7 @@ public abstract class Match {
      * @return
      */
     public Duration getTimeRemaining() {
-        // TODO implement here
-        return null;
+        return null; // to finish
     }
 
     /**
@@ -241,6 +246,10 @@ public abstract class Match {
      */
     public void start() {
         // TODO implement here
+
+    }
+
+    public void addPlayer(Player player) {
 
     }
 

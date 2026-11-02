@@ -26,7 +26,7 @@ public class ActiveAccountsBoard {
      * 
      */
     public ActiveAccountsBoard() {
-        // TODO implement here
+        this.accountOnlineList = new ArrayList<>();
     }
 
     /**

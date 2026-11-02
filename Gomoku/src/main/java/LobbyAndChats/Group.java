@@ -51,7 +51,13 @@ public class Group {
      * @param guest
      */
     public Group(User host, User guest) {
-        // TODO implement here
+        this.host = new HashMap<>();
+        this.guest = new HashMap<>();
+
+        this.host.put(host, null);
+        this.guest.put(guest, null);
+
+        this.groupChat = new GroupChat();
     }
 
     /**

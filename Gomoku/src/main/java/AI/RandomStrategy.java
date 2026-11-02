@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * 
  */
-public class RandomStrategy {
+public class RandomStrategy implements MoveStrategy{
 
     /**
      * Default constructor

@@ -30,7 +30,10 @@ public class User extends Account {
      * @param hashedPassword
      */
     public User(String nickName, String hashedPassword) {
-        // TODO implement here
+        super(nickName, hashedPassword);
+
+        this.activity = UserActivity.InLobby;
+        this.state = UserState.Active;
     }
 
     /**

@@ -89,7 +89,17 @@ public class MatchRecord {
      * @param end
      */
     public MatchRecord(String id, User white, User black, MatchResult result, boolean isRated, int ratingChangeWhite, int ratingChangeBlack, List<Move> moves, LocalDateTime started, LocalDateTime ended, MatchEndReason end) {
-        // TODO implement here
+        this.matchId = id;
+        this.white = white;
+        this.black = black;
+        this.result = result;
+        this.isRated = isRated;
+        this.ratingChangeWhite = ratingChangeWhite;
+        this.ratingChangeBlack = ratingChangeBlack;
+        this.moves = moves;
+        this.startedAt = started;
+        this.endedAt = ended;
+        this.endReason = end;
     }
 
 }

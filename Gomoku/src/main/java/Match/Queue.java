@@ -26,7 +26,7 @@ public class Queue {
      * 
      */
     public Queue() {
-        // TODO implement here
+        this.currentlyInQueue = new ArrayList<>();
     }
 
     /**

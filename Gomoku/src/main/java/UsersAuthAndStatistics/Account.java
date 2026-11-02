@@ -12,6 +12,7 @@ public abstract class Account {
      * Default constructor
      */
     public Account() {
+
     }
 
     /**
@@ -35,7 +36,10 @@ public abstract class Account {
      * @param hashedPassword
      */
     public Account(String nickName, String hashedPassword) {
-        // TODO implement here
+        this.nickName = nickName;
+        this.hashedPassword = hashedPassword;
+
+        this.id = UUID.randomUUID().toString();
     }
 
     /**

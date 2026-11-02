@@ -4,8 +4,14 @@ import LobbyAndChats.*;
 import Match.*;
 import UsersAuthAndStatistics.*;
 
+import java.time.Duration;
+
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello World!");
+        Duration timePerRound = Duration.ofMinutes(3);
+        Timer timer = new Timer(timePerRound);
+
+        timer.start();
+
     }
 }

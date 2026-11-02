@@ -29,7 +29,7 @@ public class ComputerMatchMaker {
      * @param spectateManager
      */
     public ComputerMatchMaker(SpectateManager spectateManager) {
-        // TODO implement here
+        this.spectateManager = spectateManager;
     }
 
     /**
