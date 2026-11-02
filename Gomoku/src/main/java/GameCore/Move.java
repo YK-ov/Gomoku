@@ -44,6 +44,7 @@ public class Move {
         this.xCoordinate = x;
         this.yCoordinate = y;
         this.color = color;
+        this.playedAt = LocalDateTime.now();
     }
 
 }

@@ -11,13 +11,6 @@ import java.time.Duration;
  * 
  */
 public class ComputerMatch extends Match {
-
-    /**
-     * Default constructor
-     */
-    public ComputerMatch() {
-    }
-
     /**
      * @param timePerRound 
      * @param isRated 

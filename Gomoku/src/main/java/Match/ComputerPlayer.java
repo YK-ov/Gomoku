@@ -54,13 +54,13 @@ public class ComputerPlayer extends Player {
      */
     private void addStrategyBasedOnDifficulty() {
         if (difficulty == Difficulty.Easy){
-            this.strategy = new MinMaxStrategy();
-        }
-        else if (difficulty == Difficulty.Medium){
             this.strategy = new RandomStrategy();
         }
-        else if (difficulty == Difficulty.Hard){
+        else if (difficulty == Difficulty.Medium){
             this.strategy = new HeuristicsStrategy();
+        }
+        else if (difficulty == Difficulty.Hard){
+            this.strategy = new MinMaxStrategy();
         }
     }
 

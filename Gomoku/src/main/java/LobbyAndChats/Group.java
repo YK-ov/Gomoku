@@ -13,16 +13,6 @@ import java.util.*;
  * 
  */
 public class Group {
-
-    /**
-     * Default constructor
-     */
-    public Group() {
-    }
-
-    /**
-     * 
-     */
     private Map<User, ColorType> host;
 
     /**

@@ -12,16 +12,6 @@ import java.util.*;
  * 
  */
 public abstract class Match {
-
-    /**
-     * Default constructor
-     */
-    public Match() {
-    }
-
-    /**
-     * 
-     */
     protected boolean isRated;
 
     /**
@@ -104,7 +94,7 @@ public abstract class Match {
      * @param sMr
      */
     public Match(Duration timePerRound, boolean isRated, SpectateManager sMr) {
-        this.board = new Board();
+        this.board = new Board(1000);
         this.playersInMatch = new ArrayList<>(2);
         this.moveHistory = new ArrayList<>();
         this.listeners = new ArrayList<>();
@@ -250,7 +240,7 @@ public abstract class Match {
     }
 
     public void addPlayer(Player player) {
-
+        playersInMatch.add(player);
     }
 
 }

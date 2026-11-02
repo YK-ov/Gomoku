@@ -12,13 +12,6 @@ import java.util.*;
  * 
  */
 public class HumanMatch extends Match {
-
-    /**
-     * Default constructor
-     */
-    public HumanMatch() {
-    }
-
     /**
      * @param timePerRound 
      * @param isRated 
