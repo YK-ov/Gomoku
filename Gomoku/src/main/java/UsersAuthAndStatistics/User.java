@@ -7,16 +7,6 @@ import java.util.*;
  * 
  */
 public class User extends Account {
-
-    /**
-     * Default constructor
-     */
-    public User() {
-    }
-
-    /**
-     * 
-     */
     private UserState state;
 
     /**
@@ -41,15 +31,17 @@ public class User extends Account {
      * @return
      */
     public void updateActivity(UserActivity newActivity) {
-        // TODO implement here
-
+        this.activity = newActivity;
     }
 
     /**
      * @return
      */
     public boolean canLogin() {
-        // TODO implement here
+        if (state == UserState.Active){
+            return true;
+        }
+
         return false;
     }
 
@@ -58,4 +50,19 @@ public class User extends Account {
      */
     //public abstract boolean canLogin();
 
+    public UserState getState() {
+        return state;
+    }
+
+    public UserActivity getActivity() {
+        return activity;
+    }
+
+    public void setState(UserState state) {
+        this.state = state;
+    }
+
+    public void setActivity(UserActivity activity) {
+        this.activity = activity;
+    }
 }

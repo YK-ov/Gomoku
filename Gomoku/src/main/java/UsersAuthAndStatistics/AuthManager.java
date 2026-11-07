@@ -1,5 +1,7 @@
 package UsersAuthAndStatistics;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.io.*;
 import java.util.*;
 
@@ -20,7 +22,6 @@ public class AuthManager {
      * @return
      */
     public boolean login(String nickName, String plainPassword) {
-        // TODO implement here
         return false;
     }
 
@@ -49,7 +50,10 @@ public class AuthManager {
      * @return
      */
     private boolean verifyPassword(Account account, String plainPassword) {
-        // TODO implement here
+        if (BCrypt.checkpw(plainPassword, account.getHashedPassword())){
+            return true;
+        }
+
         return false;
     }
 
@@ -58,8 +62,7 @@ public class AuthManager {
      * @return
      */
     private String hashPassword(String plainPassword) {
-        // TODO implement here
-        return "";
+        return BCrypt.hashpw(plainPassword, BCrypt.gensalt(256));
     }
 
     /**

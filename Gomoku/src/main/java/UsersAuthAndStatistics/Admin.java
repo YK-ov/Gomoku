@@ -7,17 +7,6 @@ import java.util.*;
  * 
  */
 public class Admin extends Account {
-
-    /**
-     * Default constructor
-     */
-    public Admin() {
-    }
-
-    /**
-     * @param nickName 
-     * @param hashedPassword
-     */
     public Admin(String nickName, String hashedPassword) {
         super(nickName, hashedPassword);
     }
@@ -27,7 +16,9 @@ public class Admin extends Account {
      * @return
      */
     public void banUser(User user) {
-        // TODO implement here
+        if (user.getState() == UserState.Active) {
+            user.setState(UserState.Banned);
+        }
 
     }
 
@@ -36,7 +27,9 @@ public class Admin extends Account {
      * @return
      */
     public void unbanUser(User user) {
-        // TODO implement here
+        if (user.getState() == UserState.Banned){
+            user.setState(UserState.Active);
+        }
 
     }
 
@@ -44,8 +37,7 @@ public class Admin extends Account {
      * @return
      */
     public boolean canLogin() {
-        // TODO implement here
-        return false;
+        return true; // admin nie moze zostac bana
     }
 
     /**
