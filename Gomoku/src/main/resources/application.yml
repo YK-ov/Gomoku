@@ -1,0 +1,12 @@
+spring:
+  main:
+    banner-mode: off
+  profiles:
+    active: jpa
+
+server:
+  port: 8081
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
