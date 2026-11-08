@@ -1,10 +1,14 @@
 package com.example.gomoku.UsersAuthAndStatistics;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 
 /**
  * 
  */
+@Component
 public class Leaderboard {
 
 //    /**
@@ -32,8 +36,8 @@ public class Leaderboard {
      * @return
      */
     public List<Statistics> getTopN(int n) {
-        // TODO implement here
-        return null;
+        int limit = Math.min(n, statisticsList.size());
+        return new ArrayList<>(statisticsList.subList(0, limit));
     }
 
     /**
@@ -41,7 +45,12 @@ public class Leaderboard {
      * @return
      */
     public Statistics getStatisticsByName(String nickName) {
-        // TODO implement here
+        for (int i = 0; i < statisticsList.size(); i++) {
+            if (statisticsList.get(i).getAccount().getNickName().equals(nickName)) {
+                return statisticsList.get(i);
+            }
+        }
+
         return null;
     }
 
@@ -50,7 +59,12 @@ public class Leaderboard {
      * @return
      */
     public Statistics getStatisticsOf(Account account) {
-        // TODO implement here
+        for (int i = 0; i < statisticsList.size(); i++) {
+            if (statisticsList.get(i).getAccount().getId().equals(account.getId())) {
+                return statisticsList.get(i);
+            }
+        }
+
         return null;
     }
 
@@ -58,8 +72,7 @@ public class Leaderboard {
      * @return
      */
     public void refresh() {
-        // TODO implement here
-
+        Collections.sort(statisticsList, Comparator.comparingInt(Statistics::getRating).reversed());
     }
 
     /**
@@ -67,16 +80,21 @@ public class Leaderboard {
      * @return
      */
     public int getRating(Account account) {
-        // TODO implement here
+        for (int i = 0; i < statisticsList.size(); i++) {
+            if (statisticsList.get(i).getAccount().getId().equals(account.getId())) {
+                return statisticsList.get(i).getRating();
+            }
+        }
+
         return 0;
     }
 
     public void addStatistics(Statistics statistics) {
-
+        statisticsList.add(statistics);
     }
 
     public void removeStatistics(Statistics statistics) {
-
+        statisticsList.remove(statistics);
     }
 
 }

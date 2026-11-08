@@ -3,13 +3,15 @@ package com.example.gomoku.UsersAuthAndStatistics;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * 
  */
 
-@AllArgsConstructor
+@NoArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 
@@ -44,6 +46,7 @@ public class Admin extends Account {
     /**
      * @return
      */
+    @Override
     public boolean canLogin() {
         return true; // admin nie moze dostac bana
     }
