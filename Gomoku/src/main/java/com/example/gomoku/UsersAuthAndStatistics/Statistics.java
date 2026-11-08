@@ -1,5 +1,6 @@
 package com.example.gomoku.UsersAuthAndStatistics;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 /**
@@ -7,20 +8,21 @@ import lombok.*;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
+
+@Entity
+@Table(name = "statistics")
 public class Statistics {
+    @Id
+    @Column(name = "account_id")
+    private String id; // id ktore jest de facto account_id, szczegol techniczny implementacyjny, jest to samo co account_id, dodany zeby hibernate przepiszcil te klase i powiazal z baza
 
-    /**
-     * Default constructor
-     */
-    public Statistics() {
-    }
-
-    /**
-     * 
-     */
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @MapsId
+    @JoinColumn(name = "account_id")
     private Account account;
 
     /**

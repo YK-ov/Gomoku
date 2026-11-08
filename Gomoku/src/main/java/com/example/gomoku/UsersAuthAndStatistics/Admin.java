@@ -1,13 +1,24 @@
 package com.example.gomoku.UsersAuthAndStatistics;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 
  */
+
+@AllArgsConstructor
+@Getter
+@Setter
+
+@Entity
+@DiscriminatorValue("ADMIN")
 public class Admin extends Account {
     public Admin(String nickName, String hashedPassword) {
         super(nickName, hashedPassword);
     }
-
     /**
      * @param user 
      * @return

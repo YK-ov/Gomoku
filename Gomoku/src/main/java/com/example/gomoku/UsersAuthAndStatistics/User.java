@@ -1,5 +1,8 @@
 package com.example.gomoku.UsersAuthAndStatistics;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 
 /**
@@ -7,8 +10,12 @@ import lombok.*;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+@Entity
+@DiscriminatorValue("USER")
 public class User extends Account {
     private UserState state;
 

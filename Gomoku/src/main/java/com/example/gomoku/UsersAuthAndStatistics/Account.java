@@ -2,6 +2,8 @@ package com.example.gomoku.UsersAuthAndStatistics;
 
 import java.io.*;
 import java.util.*;
+
+import jakarta.persistence.*;
 import lombok.*;
 
 /**
@@ -10,30 +12,28 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @ToString(exclude = "hashedPassword")
+
+@Entity
+@Table(name = "accounts")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_role", discriminatorType = DiscriminatorType.STRING)
 public abstract class Account {
-
-    /**
-     * Default constructor
-     */
-    public Account() {
-
-    }
-
-    /**
-     * 
-     */
+    @Column(name = "nick_name", unique = true, nullable = false)
     private String nickName;
 
     /**
      * 
      */
+    @Column(name = "hashed_password", nullable = false)
     private String hashedPassword;
 
     /**
      * 
      */
+    @Id
     private String id;
 
 
