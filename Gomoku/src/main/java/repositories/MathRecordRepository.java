@@ -2,9 +2,10 @@ package repositories;
 
 import UsersAuthAndStatistics.MatchRecord;
 import UsersAuthAndStatistics.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface MathRecordRepository {
-    Page<MatchRecord> findByWhiteOrBlackOrderByEndedAtDesc(User white, User black, Pageable pageable);
+    List<MatchRecord> findHistoryOf(User user, int page, int size);
+    MatchRecord save(MatchRecord matchRecord);
 }

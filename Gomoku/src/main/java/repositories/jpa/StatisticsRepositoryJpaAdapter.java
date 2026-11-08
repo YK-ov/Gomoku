@@ -2,37 +2,45 @@ package repositories.jpa;
 
 import UsersAuthAndStatistics.Account;
 import UsersAuthAndStatistics.Statistics;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import repositories.StatisticsRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class StatisticsRepositoryJpaAdapter implements StatisticsRepository {
-    private StatisticsJpaRepository delegate;
+    private final StatisticsJpaRepository delegate;
 
     public StatisticsRepositoryJpaAdapter(StatisticsJpaRepository delegate) {
         this.delegate = delegate;
     }
 
     @Override
-    public Optional<Statistics> findByAccount(Account account) {
-        return delegate.findByAccount(account);
-    }
-
-    @Override
-    public Optional<Statistics> findByAccount_NickName(String nickName) {
+    public Optional<Statistics> findByAccountNickName(String nickName) {
         return delegate.findByAccount_NickName(nickName);
     }
 
     @Override
-    public Optional<Statistics> findByAccount_Id(String id) {
+    public Optional<Statistics> findByAccountId(String id) {
         return delegate.findByAccount_Id(id);
     }
 
     @Override
-    public Optional<Statistics> findTopByOrderByAccountDesc(Pageable pageable) {
-        return delegate.findTopByOrderByAccountDesc(pageable);
+    public List<Statistics> findTopByRating(int limit) {
+        return delegate.findAllByOrderByRatingDesc(PageRequest.of(0, limit));
+    }
+
+    @Override
+    public Statistics save(Statistics statistics) {
+        return delegate.save(statistics);
+    }
+
+    @Override
+    public void deleteByAccountId(String id) {
+        delegate.deleteByAccount_Id(id);
     }
 }

@@ -7,10 +7,17 @@ import GameCore.Move;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.*;
+import lombok.*;
 
 /**
  * 
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
+@EqualsAndHashCode(of = "matchId")
+@ToString
 public class MatchRecord {
 
     /**

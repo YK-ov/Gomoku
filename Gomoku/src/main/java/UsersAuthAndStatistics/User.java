@@ -1,11 +1,17 @@
 package UsersAuthAndStatistics;
 
+import lombok.*;
+
 import java.io.*;
 import java.util.*;
 
 /**
  * 
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
 public class User extends Account {
     private UserState state;
 
@@ -49,20 +55,4 @@ public class User extends Account {
      * @return
      */
     //public abstract boolean canLogin();
-
-    public UserState getState() {
-        return state;
-    }
-
-    public UserActivity getActivity() {
-        return activity;
-    }
-
-    public void setState(UserState state) {
-        this.state = state;
-    }
-
-    public void setActivity(UserActivity activity) {
-        this.activity = activity;
-    }
 }

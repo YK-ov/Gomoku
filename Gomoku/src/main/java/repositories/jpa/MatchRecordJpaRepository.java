@@ -7,5 +7,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MatchRecordJpaRepository extends JpaRepository<MatchRecord, String> {
-    Page<MatchRecord> findByWhiteOrBlackOrderByEndedAtDesc(User white, User black, Pageable pageable);
+    Page<MatchRecord> findByWhiteOrBlackOrderByEndedAtDesc(User user, Pageable pageable);
 }

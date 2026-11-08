@@ -1,11 +1,18 @@
 package UsersAuthAndStatistics;
 
+import lombok.*;
+
 import java.io.*;
 import java.util.*;
 
 /**
  * 
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
+@ToString
 public class Statistics {
 
     /**

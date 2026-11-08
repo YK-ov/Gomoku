@@ -2,10 +2,17 @@ package UsersAuthAndStatistics;
 
 import java.io.*;
 import java.util.*;
+import lombok.*;
 
 /**
  * 
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
+@EqualsAndHashCode(of = "id")
+@ToString(exclude = "hashedPassword")
 public abstract class Account {
 
     /**
@@ -42,29 +49,6 @@ public abstract class Account {
         this.id = UUID.randomUUID().toString();
     }
 
-    public String getNickName() {
-        return nickName;
-    }
-
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     /**
      * @return
