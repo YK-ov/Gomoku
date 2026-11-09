@@ -16,8 +16,16 @@ public class AuthManager {
      * @param plainPassword 
      * @return
      */
-    public boolean login(String nickName, String plainPassword) {
-        return false;
+    public boolean login(String nickName, String plainPassword) {       // metody login i register sa cienkie, sama logika rejestracji i logowania w AuthManager z SpringSecurity
+        if (nickName == null || nickName.length() < 3 || nickName.isBlank() || nickName.length() > 8){
+            return false;
+        }
+
+        if (plainPassword == null || plainPassword.isBlank()){
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -26,9 +34,15 @@ public class AuthManager {
      * @return
      */
     public User register(String nickName, String plainPassword) {
+        if (nickName == null || nickName.length() < 3 || nickName.isBlank() || nickName.length() > 8){
+            return null;
+        }
 
+        if (plainPassword == null || plainPassword.isBlank()){
+            return null;
+        }
 
-        return null;
+        return new User(nickName, plainPassword);
     }
 
     /**
@@ -66,7 +80,6 @@ public class AuthManager {
      * @return
      */
     public boolean changePassword(String oldPlainPassword, String newPlainPassword, Account account) {
-        // TODO implement here
         return false;
     }
 
@@ -76,7 +89,7 @@ public class AuthManager {
      * @return
      */
     public boolean changeNickName(String oldNickName, String newNickName) {
-        // TODO implement here
+
         return false;
     }
 

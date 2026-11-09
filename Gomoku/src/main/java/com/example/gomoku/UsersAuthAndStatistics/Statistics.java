@@ -54,7 +54,7 @@ public class Statistics {
      * @return
      */
     public void recordWin(int ratingChange) {
-        // TODO implement here
+        this.rating = this.rating + ratingChange;
 
     }
 
@@ -63,8 +63,7 @@ public class Statistics {
      * @return
      */
     public void recordLoss(int ratingChange) {
-        // TODO implement here
-
+        this.rating = this.rating - ratingChange;
     }
 
     /**
@@ -72,8 +71,7 @@ public class Statistics {
      * @return
      */
     public void recordDraw(int ratingChange) {
-        // TODO implement here
-
+        this.rating = this.rating + ratingChange;
     }
 
 }
