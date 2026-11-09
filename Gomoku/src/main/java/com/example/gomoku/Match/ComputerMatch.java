@@ -4,22 +4,15 @@ import com.example.gomoku.AI.Difficulty;
 import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.GameCore.MatchResult;
 import com.example.gomoku.UsersAuthAndStatistics.User;
+import com.example.gomoku.UsersAuthAndStatistics.*;
 
 import java.time.Duration;
+import java.util.List;
 
 /**
  * 
  */
 public class ComputerMatch extends Match {
-    /**
-     * @param timePerRound 
-     * @param isRated 
-     * @param user 
-     * @param userColor 
-     * @param computerColor 
-     * @param difficulty 
-     * @param sM
-     */
     public ComputerMatch(Duration timePerRound, boolean isRated, User user, ColorType userColor, ColorType computerColor, Difficulty difficulty, SpectateManager sM) {
         super(timePerRound, isRated, sM);
 
@@ -34,10 +27,10 @@ public class ComputerMatch extends Match {
      * @param result 
      * @return
      */
-    //@Override
+    @Override
     protected int applyRatings(MatchResult result) {
-        // TODO implement here
-        return 0;
+
+        return 0;  // mecz z kompterem nie zmienia ratingu
     }
 
     /**

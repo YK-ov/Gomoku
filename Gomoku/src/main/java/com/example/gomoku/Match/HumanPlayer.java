@@ -4,6 +4,11 @@ import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.GameCore.Move;
 import com.example.gomoku.UsersAuthAndStatistics.User;
 
+import lombok.*;
+
+@Getter
+@Setter
+
 /**
  * 
  */
@@ -35,8 +40,7 @@ public class HumanPlayer extends Player {
      * @return
      */
     public Move makeMove(int x, int y) {
-        // TODO implement here
-        return null;
+        return new Move(x, y, super.getColor());
     }
 
 }

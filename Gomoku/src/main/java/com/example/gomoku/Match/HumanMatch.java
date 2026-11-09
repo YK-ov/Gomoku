@@ -2,9 +2,12 @@ package com.example.gomoku.Match;
 
 import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.GameCore.MatchResult;
+import com.example.gomoku.UsersAuthAndStatistics.RatingCalculator;
 import com.example.gomoku.UsersAuthAndStatistics.User;
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 
@@ -19,7 +22,10 @@ public class HumanMatch extends Match {
      * @param secondColor 
      * @param sM
      */
-    public HumanMatch(Duration timePerRound, boolean isRated, User firstUser, User secondUser, ColorType firstColor, ColorType secondColor, SpectateManager sM) {
+
+    private RatingCalculator ratingCalculator;
+
+    public HumanMatch(Duration timePerRound, boolean isRated, User firstUser, User secondUser, ColorType firstColor, ColorType secondColor, SpectateManager sM, RatingCalculator rT) {
         super(timePerRound, isRated, sM);
 
         HumanPlayer firstPlayer = new HumanPlayer(firstColor, firstUser);
@@ -27,6 +33,8 @@ public class HumanMatch extends Match {
 
         addPlayer(firstPlayer);
         addPlayer(secondPlayer);
+
+        this.ratingCalculator = rT;
     }
 
     /**
@@ -34,8 +42,19 @@ public class HumanMatch extends Match {
      * @return
      */
     protected int applyRatings(MatchResult result) {
-        // TODO implement here
-        return 0;
+        User whiteUser = null;
+        User blackUser = null;
+
+        for (int i = 0; i < super.getPlayersInMatch().size(); i++){
+            if (super.getPlayersInMatch().get(i).getColor() == ColorType.White){
+                whiteUser = ((HumanPlayer) getPlayersInMatch().get(i)).getUser();
+            }
+            else if (super.getPlayersInMatch().get(i).getColor() == ColorType.Black){
+                blackUser = ((HumanPlayer) getPlayersInMatch().get(i)).getUser();
+            }
+        }
+
+        return ratingCalculator.updateRatings(whiteUser, blackUser, result);
     }
 
     /**
@@ -45,16 +64,5 @@ public class HumanMatch extends Match {
         // TODO implement here
 
     }
-
-    /**
-     * @param result 
-     * @return
-     */
-    //protected abstract int applyRatings(MatchResult result);
-
-    /**
-     * @return
-     */
-    //protected abstract void afterMove();
 
 }

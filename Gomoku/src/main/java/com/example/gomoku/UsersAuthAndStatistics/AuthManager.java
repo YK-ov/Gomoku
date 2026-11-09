@@ -1,14 +1,18 @@
 package com.example.gomoku.UsersAuthAndStatistics;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 /**
  * 
  */
 public class AuthManager {
+    private PasswordEncoder passwordEncoder;    // szczegol implementacyjny springboota do hashowania
+    private AuthenticationManager authenticationManager;    // szczegol implementacyjny springboota do zarzadzania autentykacja
 
-    /**
-     * Default constructor
-     */
-    public AuthManager() {
+    public AuthManager(PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
     }
 
     /**
@@ -45,22 +49,10 @@ public class AuthManager {
         return new User(nickName, plainPassword);
     }
 
-    /**
-     * @param nickName 
-     * @return
-     */
-    public Account findAccountByNickName(String nickName) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param account 
-     * @param plainPassword 
-     * @return
-     */
     private boolean verifyPassword(Account account, String plainPassword) {
-
+        if (passwordEncoder.matches(plainPassword, account.getHashedPassword())){
+            return true;
+        }
 
         return false;
     }
@@ -70,7 +62,7 @@ public class AuthManager {
      * @return
      */
     private String hashPassword(String plainPassword) {
-        return "";
+        return passwordEncoder.encode(plainPassword);
     }
 
     /**
@@ -80,6 +72,12 @@ public class AuthManager {
      * @return
      */
     public boolean changePassword(String oldPlainPassword, String newPlainPassword, Account account) {
+        if (passwordEncoder.matches(oldPlainPassword, account.getHashedPassword())){
+            account.setHashedPassword(hashPassword(newPlainPassword));
+
+            return true;
+        }
+
         return false;
     }
 
@@ -88,9 +86,18 @@ public class AuthManager {
      * @param newNickName 
      * @return
      */
-    public boolean changeNickName(String oldNickName, String newNickName) {
+    public boolean changeNickName(String oldNickName, String newNickName, Account account) {
+        if (newNickName == null || newNickName.length() < 3 || newNickName.isBlank() || newNickName.length() > 8){
+            return false;
+        }
 
-        return false;
+        if (account.getNickName().equals(newNickName)){
+            return false;
+        }
+
+        account.setNickName(newNickName);
+
+        return true;
     }
 
 }

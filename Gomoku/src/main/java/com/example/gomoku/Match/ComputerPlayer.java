@@ -5,6 +5,11 @@ import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.GameCore.Move;
 import com.example.gomoku.AI.*;
 
+import lombok.*;
+
+@Getter
+@Setter
+
 /**
  * 
  */
@@ -42,8 +47,7 @@ public class ComputerPlayer extends Player {
      * @return
      */
     public Move chooseMove(Board board) {
-        // TODO implement here
-        return null;
+        return strategy.chooseMove(board, super.getColor());
     }
 
     /**

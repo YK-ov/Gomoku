@@ -39,16 +39,37 @@ public class ComputerMatchMaker {
      * @return
      */
     public ComputerMatch startComputerMatch(boolean isRated, User user, ColorType userColor, Difficulty difficulty, SpectateManager sM) {
-        // TODO implement here
-        return null;
+        Duration timePerRound = null;
+        isRated = false;
+        ColorType computerColor = null;
+
+        if (userColor == ColorType.White){
+            computerColor = ColorType.Black;
+        }
+        else if (userColor == ColorType.Black){
+            computerColor = ColorType.White;
+        }
+
+        timePerRound = timePerRoundFor(difficulty);
+
+        return new ComputerMatch(timePerRound, isRated, user, userColor, computerColor, difficulty, sM);
     }
 
     /**
      * @return
      */
     public ColorType randomizeColor() {
-        // TODO implement here
-        return null;
+        int randomNum = (int)(Math.random() * 2);
+        ColorType playerColor = null;
+
+        if (randomNum == 0){
+            playerColor = ColorType.White;
+        }
+        else {
+            playerColor = ColorType.Black;
+        }
+
+        return playerColor;
     }
 
     /**
@@ -56,8 +77,20 @@ public class ComputerMatchMaker {
      * @return
      */
     public Duration timePerRoundFor(Difficulty difficulty) {
-        // TODO implement here
-        return null;
+        Duration timePerRound = null;
+
+        if (difficulty == Difficulty.Easy){
+            timePerRound = Duration.ofMinutes(10);
+        }
+        else if (difficulty == Difficulty.Medium){
+            timePerRound = Duration.ofMinutes(5);
+        }
+        else if (difficulty == Difficulty.Hard){
+            timePerRound = Duration.ofMinutes(3);
+        }
+
+
+        return timePerRound;
     }
 
 }
