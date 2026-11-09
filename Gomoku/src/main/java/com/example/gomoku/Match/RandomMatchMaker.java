@@ -2,90 +2,67 @@ package com.example.gomoku.Match;
 
 import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.UsersAuthAndStatistics.Leaderboard;
+import com.example.gomoku.UsersAuthAndStatistics.RatingCalculator;
 import com.example.gomoku.UsersAuthAndStatistics.User;
+
+import java.time.Duration;
 
 /**
  * 
  */
 public class RandomMatchMaker {
-
-    /**
-     * Default constructor
-     */
     public RandomMatchMaker() {
     }
 
-    /**
-     * 
-     */
     private Queue currentQueue;
-
-    /**
-     * 
-     */
     private SpectateManager spectateManager;
-
-    /**
-     * 
-     */
     private Leaderboard leaderboard;
+    private RatingCalculator ratingCalculator;
 
-
-
-    /**
-     * @param spectateManager 
-     * @param leaderboard
-     */
-    public RandomMatchMaker(SpectateManager spectateManager, Leaderboard leaderboard) {
+    public RandomMatchMaker(SpectateManager spectateManager, Leaderboard leaderboard, RatingCalculator rT) {
         this.currentQueue = new Queue();
         this.spectateManager = spectateManager;
         this.leaderboard = leaderboard;
+        this.ratingCalculator = rT;
     }
 
-    /**
-     * @param user 
-     * @return
-     */
     public void joinQueue(User user) {
-        // TODO implement here
-
+        currentQueue.addUser(user);
     }
 
-    /**
-     * @param user 
-     * @return
-     */
     public void leaveQueue(User user) {
-        // TODO implement here
-
+        currentQueue.removeUser(user);
     }
 
-    /**
-     * @return
-     */
     public void searchForSimilarRating() {
         // TODO implement here
 
     }
 
-    /**
-     * @param isRated 
-     * @param firstUser 
-     * @param secondUser 
-     * @param sM 
-     * @return
-     */
     public HumanMatch startMatchWhenFoundOpponents(boolean isRated, User firstUser, User secondUser, SpectateManager sM) {
-        // TODO implement here
-        return null;
+        Duration timePerRound = Duration.ofMinutes(3);
+
+        ColorType firstPlayerColor = null;
+        ColorType secondPlayerColor = null;
+
+        while (firstPlayerColor == secondPlayerColor){
+            firstPlayerColor = randomizeColor();
+            secondPlayerColor = randomizeColor();
+        }
+
+        return new HumanMatch(timePerRound, isRated, firstUser, secondUser, firstPlayerColor, secondPlayerColor, sM, ratingCalculator);
     }
 
-    /**
-     * @return
-     */
     public ColorType randomizeColor() {
-        // TODO implement here
-        return null;
+        int randomNum = (int)(Math.random() * 2);
+
+        if (randomNum == 0){
+            return ColorType.White;
+        }
+        else {
+            return ColorType.Black;
+        }
+
     }
 
 }

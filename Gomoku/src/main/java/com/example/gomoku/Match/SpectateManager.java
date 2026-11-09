@@ -10,16 +10,6 @@ import java.util.*;
  * 
  */
 public class SpectateManager implements MatchListener{
-
-//    /**
-//     * Default constructor
-//     */
-//    public SpectateManager() {
-//    }
-//
-//    /**
-//     *
-//     */
     private Map<String, Map<Admin, MatchListener>> spectators;
 
     /**

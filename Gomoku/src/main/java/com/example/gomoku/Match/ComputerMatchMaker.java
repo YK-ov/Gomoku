@@ -39,7 +39,6 @@ public class ComputerMatchMaker {
      * @return
      */
     public ComputerMatch startComputerMatch(boolean isRated, User user, ColorType userColor, Difficulty difficulty, SpectateManager sM) {
-        Duration timePerRound = null;
         isRated = false;
         ColorType computerColor = null;
 
@@ -50,7 +49,7 @@ public class ComputerMatchMaker {
             computerColor = ColorType.White;
         }
 
-        timePerRound = timePerRoundFor(difficulty);
+        Duration timePerRound = timePerRoundFor(difficulty);
 
         return new ComputerMatch(timePerRound, isRated, user, userColor, computerColor, difficulty, sM);
     }
