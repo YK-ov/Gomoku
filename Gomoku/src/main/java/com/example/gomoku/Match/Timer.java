@@ -6,6 +6,11 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import lombok.*;
+
+@Getter
+@Setter
+
 /**
  * 
  */
@@ -50,6 +55,7 @@ public class Timer {
      */
     public void start() {
         this.deadline = Instant.now().plus(timerPerRound);
+        this.isRunning = true;
 
         //System.out.println(deadline);
     }
@@ -58,15 +64,15 @@ public class Timer {
      * @return
      */
     public void stop() {
-        // TODO implement here
-
+        this.isRunning = false;
     }
 
     /**
      * @return
      */
     public boolean isExpired() {
-        // TODO implement here
+
+
         return false;
     }
 
@@ -75,38 +81,6 @@ public class Timer {
      */
     public void resume() {
         // TODO implement here
-    }
-
-    public Duration getTimerPerRound() {
-        return timerPerRound;
-    }
-
-    public Instant getDeadline() {
-        return deadline;
-    }
-
-    public Duration getRemaining() {
-        return remaining;
-    }
-
-    public boolean isRunning() {
-        return isRunning;
-    }
-
-    public void setTimerPerRound(Duration timerPerRound) {
-        this.timerPerRound = timerPerRound;
-    }
-
-    public void setDeadline(Instant deadline) {
-        this.deadline = deadline;
-    }
-
-    public void setRemaining(Duration remaining) {
-        this.remaining = remaining;
-    }
-
-    public void setRunning(boolean running) {
-        isRunning = running;
     }
 
 }
