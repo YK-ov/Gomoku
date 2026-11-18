@@ -7284,7 +7284,7 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 424,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "Group"
 										},
@@ -7322,7 +7322,7 @@
 									"parentStyle": true,
 									"left": 316,
 									"top": 417,
-									"width": 1030.814453125,
+									"width": 1154.365234375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGhkhqdH6UdPmo="
@@ -7360,7 +7360,7 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 447,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "-host: Map<User, ColorType>",
 											"horizontalAlignment": 0
@@ -7378,7 +7378,7 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 462,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "-guest: Map<User, ColorType>",
 											"horizontalAlignment": 0
@@ -7396,7 +7396,7 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 477,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "-isRated: boolean",
 											"horizontalAlignment": 0
@@ -7414,7 +7414,7 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 492,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "-timePerRound: Duration",
 											"horizontalAlignment": 0
@@ -7432,9 +7432,27 @@
 											"parentStyle": true,
 											"left": 321,
 											"top": 507,
-											"width": 1020.814453125,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "-groupChat: GroupChat",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGh8Bmkole4DoE=",
+											"_parent": {
+												"$ref": "AAAAAAGhkhqdH6UhzCw="
+											},
+											"model": {
+												"$ref": "AAAAAAGh8BmknFe1sx0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 321,
+											"top": 522,
+											"width": 1144.365234375,
+											"height": 13,
+											"text": "-ratingCalculator: RatingCalculator",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7442,8 +7460,8 @@
 									"parentStyle": true,
 									"left": 316,
 									"top": 442,
-									"width": 1030.814453125,
-									"height": 83
+									"width": 1154.365234375,
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -7467,8 +7485,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 530,
-											"width": 1020.814453125,
+											"top": 545,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+Group(host: User, guest: User)",
 											"horizontalAlignment": 0
@@ -7485,8 +7503,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 545,
-											"width": 1020.814453125,
+											"top": 560,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+passHost(): void",
 											"horizontalAlignment": 0
@@ -7503,10 +7521,10 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 560,
-											"width": 1020.814453125,
+											"top": 575,
+											"width": 1144.365234375,
 											"height": 13,
-											"text": "+startHostGuestGame(timer: Duration, isRated: boolean, firstUser: User, secondUser: User, firstColor: ColorType, secondColor: ColorType, sM: SpectateManager): HumanMatch",
+											"text": "+startHostGuestGame(timer: Duration, isRated: boolean, firstUser: User, secondUser: User, firstColor: ColorType, secondColor: ColorType, sM: SpectateManager, rC: RatingCalculator): HumanMatch",
 											"horizontalAlignment": 0
 										},
 										{
@@ -7521,8 +7539,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 575,
-											"width": 1020.814453125,
+											"top": 590,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+leave(user: User): void",
 											"horizontalAlignment": 0
@@ -7539,8 +7557,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 590,
-											"width": 1020.814453125,
+											"top": 605,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+chooseColor(user: User, color: ColorType): void",
 											"horizontalAlignment": 0
@@ -7557,8 +7575,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 605,
-											"width": 1020.814453125,
+											"top": 620,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+checkAvailableColors(): List<ColorType>",
 											"horizontalAlignment": 0
@@ -7575,8 +7593,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 620,
-											"width": 1020.814453125,
+											"top": 635,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+dropColor(user: User): void",
 											"horizontalAlignment": 0
@@ -7593,8 +7611,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 635,
-											"width": 1020.814453125,
+											"top": 650,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+randomiseIfColorNotPicked(): void",
 											"horizontalAlignment": 0
@@ -7611,8 +7629,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 650,
-											"width": 1020.814453125,
+											"top": 665,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+isFull(): boolean",
 											"horizontalAlignment": 0
@@ -7629,8 +7647,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 665,
-											"width": 1020.814453125,
+											"top": 680,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+disband(): void",
 											"horizontalAlignment": 0
@@ -7647,8 +7665,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 680,
-											"width": 1020.814453125,
+											"top": 695,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+setTimePerRound(host: User, timePerRound: Duration): void",
 											"horizontalAlignment": 0
@@ -7665,8 +7683,8 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 321,
-											"top": 695,
-											"width": 1020.814453125,
+											"top": 710,
+											"width": 1144.365234375,
 											"height": 13,
 											"text": "+setRated(host: User, isRated: boolean): void",
 											"horizontalAlignment": 0
@@ -7675,8 +7693,8 @@
 									"font": "Arial;13;0",
 									"parentStyle": true,
 									"left": 316,
-									"top": 525,
-									"width": 1030.814453125,
+									"top": 540,
+									"width": 1154.365234375,
 									"height": 188
 								},
 								{
@@ -7719,8 +7737,8 @@
 							"containerChangeable": true,
 							"left": 316,
 							"top": 417,
-							"width": 1029.814453125,
-							"height": 296,
+							"width": 1153.365234375,
+							"height": 311,
 							"nameCompartment": {
 								"$ref": "AAAAAAGhkhqdHqUcqKo="
 							},
@@ -12548,6 +12566,20 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAGhmHDLyoBhMwA="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGh8BhwsEtju9E=",
+							"_parent": {
+								"$ref": "AAAAAAGhkfJ7sZ50TSA="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1305,
+							"top": 146,
+							"width": 200,
+							"height": 90,
+							"text": "Klasa Group ma w swoim polu klase RatingCalculator, czyli to relacja asocjacji (klasa RatingCalculator jest z pakietu User, auth and statistics)"
 						}
 					]
 				},
@@ -14601,6 +14633,18 @@
 							"type": {
 								"$ref": "AAAAAAGhkhsem6YYSEI="
 							}
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGh8BmknFe1sx0=",
+							"_parent": {
+								"$ref": "AAAAAAGhkhqdHqUZOHc="
+							},
+							"name": "ratingCalculator",
+							"visibility": "private",
+							"type": {
+								"$ref": "AAAAAAGhkaTHPtjGQvw="
+							}
 						}
 					],
 					"operations": [
@@ -14745,6 +14789,17 @@
 									"name": "sM",
 									"type": {
 										"$ref": "AAAAAAGhlt4PwMWIHfI="
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGh8BrKeV41QTw=",
+									"_parent": {
+										"$ref": "AAAAAAGhmBTBdBqGqxM="
+									},
+									"name": "rC",
+									"type": {
+										"$ref": "AAAAAAGhkaTHPtjGQvw="
 									}
 								}
 							]
@@ -23019,6 +23074,24 @@
 											"height": 13,
 											"text": "+getAll(): List<User>",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGh78hxzSCDxxU=",
+											"_parent": {
+												"$ref": "AAAAAAGhk5Vaj8isZKs="
+											},
+											"model": {
+												"$ref": "AAAAAAGh78hxwCCAXUM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 1166,
+											"top": 808,
+											"width": 179.12158203125,
+											"height": 13,
+											"text": "+getUser(int index): User",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
@@ -23026,7 +23099,7 @@
 									"left": 1161,
 									"top": 713,
 									"width": 189.12158203125,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -23069,7 +23142,7 @@
 							"left": 1161,
 							"top": 665,
 							"width": 188.12158203125,
-							"height": 146,
+							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAGhk5Vajsim4CQ="
 							},
@@ -29776,6 +29849,36 @@
 										"$ref": "AAAAAAGhl5CafwdbsoA="
 									},
 									"type": "List<User>",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGh78hxwCCAXUM=",
+							"_parent": {
+								"$ref": "AAAAAAGhk5VajsijpJs="
+							},
+							"name": "getUser",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGh78i0tyHXPss=",
+									"_parent": {
+										"$ref": "AAAAAAGh78hxwCCAXUM="
+									},
+									"name": "int index",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGh78i0tyHYrZY=",
+									"_parent": {
+										"$ref": "AAAAAAGh78hxwCCAXUM="
+									},
+									"type": {
+										"$ref": "AAAAAAGhiTuj3P+twdY="
+									},
 									"direction": "return"
 								}
 							]

@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2ed7de67-7bd3-4546-ac44-b8d9d96986cc" name="Changes" comment="to finish Timer class and to check if synchronized for its methods needed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/PrivateChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/PrivateChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/PrivateChatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/LobbyAndChats/PrivateChatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/Match/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/Match/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gomoku/Match/RandomMatchMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gomoku/Match/RandomMatchMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +111,7 @@
       <workItem from="1794135911265" duration="9546000" />
       <workItem from="1794218747765" duration="3945000" />
       <workItem from="1794247379509" duration="5159000" />
+      <workItem from="1795020543516" duration="8280000" />
     </task>
     <task id="LOCAL-00001" summary="deleted no argument constructors, fixed few compositions and initializations, fixed strategy choosing based on difficulty logic">
       <option name="closed" value="true" />
