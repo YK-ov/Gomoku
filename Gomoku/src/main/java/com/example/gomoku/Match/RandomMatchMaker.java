@@ -35,7 +35,7 @@ public class RandomMatchMaker {
     }
 
     public void searchForSimilarRating() {
-        // TODO implement here
+
 
     }
 

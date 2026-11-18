@@ -3,6 +3,7 @@ package com.example.gomoku.LobbyAndChats;
 import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.Match.HumanMatch;
 import com.example.gomoku.Match.SpectateManager;
+import com.example.gomoku.UsersAuthAndStatistics.RatingCalculator;
 import com.example.gomoku.UsersAuthAndStatistics.User;
 
 import java.time.Duration;
@@ -34,6 +35,8 @@ public class Group {
      */
     private GroupChat groupChat;
 
+    private RatingCalculator ratingCalculator;
+
 
     /**
      * @param host 
@@ -53,8 +56,9 @@ public class Group {
      * @return
      */
     public void passHost() {
-        // TODO implement here
-
+        Map<User, ColorType> temp = host;
+        host = guest;
+        guest = temp;
     }
 
     /**
@@ -67,9 +71,8 @@ public class Group {
      * @param sM 
      * @return
      */
-    public HumanMatch startHostGuestGame(Duration timer, boolean isRated, User firstUser, User secondUser, ColorType firstColor, ColorType secondColor, SpectateManager sM) {
-        // TODO implement here
-        return null;
+    public HumanMatch startHostGuestGame(Duration timer, boolean isRated, User firstUser, User secondUser, ColorType firstColor, ColorType secondColor, SpectateManager sM, RatingCalculator rC) {
+        return new HumanMatch(timer, isRated, firstUser, secondUser, firstColor, secondColor, sM, rC);
     }
 
     /**
@@ -77,8 +80,8 @@ public class Group {
      * @return
      */
     public void leave(User user) {
-        // TODO implement here
-
+        this.host.put(null, null);
+        this.guest.put(null, null);
     }
 
     /**
@@ -87,7 +90,19 @@ public class Group {
      * @return
      */
     public void chooseColor(User user, ColorType color) {
-        // TODO implement here
+        if (host.containsKey(user)) {
+            host.put(user, color);
+        }
+        else if (guest.containsKey(user)) {
+            if (host.get(user) == color) {
+                if (color == ColorType.Black){
+                    guest.put(user, ColorType.White);
+                }
+                else {
+                    guest.put(user, ColorType.Black);
+                }
+            }
+        }
 
     }
 
@@ -95,7 +110,8 @@ public class Group {
      * @return
      */
     public List<ColorType> checkAvailableColors() {
-        // TODO implement here
+
+
         return null;
     }
 

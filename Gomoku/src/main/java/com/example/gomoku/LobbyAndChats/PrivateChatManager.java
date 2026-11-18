@@ -2,6 +2,7 @@ package com.example.gomoku.LobbyAndChats;
 
 import com.example.gomoku.UsersAuthAndStatistics.Account;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -34,8 +35,7 @@ public class PrivateChatManager {
      * @return
      */
     public PrivateChat openOrGetChat(Account first, Account second) {
-        // TODO implement here
-        return null;
+        return new PrivateChat(first, second);
     }
 
     /**
@@ -45,7 +45,9 @@ public class PrivateChatManager {
      * @return
      */
     public void whisper(Account sender, Account receiver, String text) {
-        // TODO implement here
+        LocalDateTime now = LocalDateTime.now();
+        Message message = new Message(sender, text, now);
+
 
     }
 

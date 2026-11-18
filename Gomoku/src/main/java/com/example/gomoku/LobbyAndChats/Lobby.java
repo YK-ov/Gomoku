@@ -6,6 +6,8 @@ import com.example.gomoku.Match.Match;
 import com.example.gomoku.UsersAuthAndStatistics.Account;
 import com.example.gomoku.Match.MatchStatus;
 import com.example.gomoku.Match.MatchListener;
+import com.example.gomoku.UsersAuthAndStatistics.User;
+import com.example.gomoku.UsersAuthAndStatistics.UserActivity;
 
 import java.util.*;
 
@@ -50,8 +52,9 @@ public class Lobby implements MatchListener {
      * @return
      */
     public void join(Account account) {
-        // TODO implement here
-
+        if (account.getClass() == User.class) {
+            ((User) account).setActivity(UserActivity.InLobby);
+        }
     }
 
     /**
@@ -59,7 +62,9 @@ public class Lobby implements MatchListener {
      * @return
      */
     public void leave(Account account) {
-        // TODO implement here
+        if (account.getClass() == User.class) {
+            ((User) account).setActivity(UserActivity.Offline);
+        }
 
     }
 

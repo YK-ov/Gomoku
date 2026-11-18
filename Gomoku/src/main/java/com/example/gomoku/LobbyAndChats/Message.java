@@ -8,13 +8,6 @@ import java.time.LocalDateTime;
  * 
  */
 public class Message {
-
-    /**
-     * Default constructor
-     */
-    public Message() {
-    }
-
     /**
      * 
      */

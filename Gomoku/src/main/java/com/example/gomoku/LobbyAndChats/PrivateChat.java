@@ -39,7 +39,10 @@ public class PrivateChat extends Chat {
      * @return
      */
     public boolean isBetween(Account a, Account b) {
-        // TODO implement here
+        if (first.equals(a) && second.equals(b)) {
+            return true;
+        }
+
         return false;
     }
 

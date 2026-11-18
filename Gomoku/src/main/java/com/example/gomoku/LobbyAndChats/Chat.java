@@ -33,7 +33,6 @@ public abstract class Chat {
      * @return
      */
     public void send(Account sender, String text) {
-        // TODO implement here
 
     }
 
