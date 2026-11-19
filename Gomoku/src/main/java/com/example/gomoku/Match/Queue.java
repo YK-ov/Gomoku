@@ -2,26 +2,18 @@ package com.example.gomoku.Match;
 
 import com.example.gomoku.UsersAuthAndStatistics.User;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 
 /**
  * 
  */
 public class Queue {
-
-//    /**
-//     * Default constructor
-//     */
-//    public Queue() {
-//    }
-//
-//    /**
-//     *
-//     */
-    private List<User> currentlyInQueue;
+    private LinkedHashMap<User, Instant> currentlyInQueue;
 
     public Queue() {
-        this.currentlyInQueue = new ArrayList<>();
+        this.currentlyInQueue= new LinkedHashMap<>();
     }
 
     public int getSize(){
@@ -29,7 +21,7 @@ public class Queue {
     }
 
     public void addUser(User user) {
-        currentlyInQueue.add(user);
+        currentlyInQueue.put(user, Instant.now());
     }
 
     public void removeUser(User user) {
@@ -37,19 +29,19 @@ public class Queue {
     }
 
     public boolean contains(User user) {
-        if (currentlyInQueue.contains(user)) {
+        if (currentlyInQueue.containsKey(user)) {
             return true;
         }
 
         return false;
     }
 
-    public List<User> getAll() {
+    public LinkedHashMap<User, Instant> getAll() {
         return currentlyInQueue;
     }
 
-    public User getUser(int index) {
-        return currentlyInQueue.get(index);
-    }
+//    public User getUser(int index) {
+//        return currentlyInQueue.get()
+//    }
 
 }
