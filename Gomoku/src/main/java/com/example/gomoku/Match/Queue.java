@@ -40,8 +40,4 @@ public class Queue {
         return currentlyInQueue;
     }
 
-//    public User getUser(int index) {
-//        return currentlyInQueue.get()
-//    }
-
 }

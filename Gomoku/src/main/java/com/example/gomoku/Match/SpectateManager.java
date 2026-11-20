@@ -5,6 +5,7 @@ import com.example.gomoku.GameCore.Move;
 import com.example.gomoku.UsersAuthAndStatistics.Admin;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 
@@ -25,8 +26,8 @@ public class SpectateManager implements MatchListener{
      * 
      */
     public SpectateManager() {
-        this.spectators = new HashMap<>();
-        this.activeMatches = new HashMap<>();
+        this.spectators = new ConcurrentHashMap<>();
+        this.activeMatches = new ConcurrentHashMap<>();
     }
 
     /**
@@ -34,8 +35,9 @@ public class SpectateManager implements MatchListener{
      * @return
      */
     public void registerMatch(Match match) {
-        // TODO implement here
-
+        spectators.putIfAbsent(match.getMatchId(), new ConcurrentHashMap<>());  // ConcurrentHashMap bo bezpieczna wersja dla wielu watkow, wielu watkow beda mogly robic operacje na mapie
+        activeMatches.put(match.getMatchId(), match);
+        match.addListener(this);
     }
 
     /**
@@ -45,8 +47,11 @@ public class SpectateManager implements MatchListener{
      * @return
      */
     public void spectate(Admin admin, String matchId, MatchListener listener) {
-        // TODO implement here
-
+        Map<Admin, MatchListener> watchers = spectators.get(matchId);
+        if (watchers == null) {
+            throw new IllegalArgumentException("Brak partii o id " + matchId);
+        }
+        watchers.put(admin, listener);
     }
 
     /**
@@ -55,8 +60,11 @@ public class SpectateManager implements MatchListener{
      * @return
      */
     public void stopSpectating(Admin admin, String matchId) {
-        // TODO implement here
+        if (admin == null){
+            throw new IllegalStateException("Operacja jest dostępna tylko administratorowi");
+        }
 
+        spectators.get(matchId).remove(admin);
     }
 
     /**
@@ -64,9 +72,15 @@ public class SpectateManager implements MatchListener{
      * @param move 
      * @return
      */
+    @Override
     public void onMoveMade(Match match, Move move) {
-        // TODO implement here
+        if (!activeMatches.containsKey(match.getMatchId())){
+            throw new IllegalStateException("Brak partii o id " + match.getMatchId());
+        }
 
+        for (MatchListener listener : spectators.get(match.getMatchId()).values()) {
+            listener.onMoveMade(match, move);
+        }
     }
 
     /**
@@ -74,9 +88,15 @@ public class SpectateManager implements MatchListener{
      * @param status 
      * @return
      */
+    @Override
     public void onStatusChanged(Match match, MatchStatus status) {
-        // TODO implement here
+        if (!activeMatches.containsKey(match.getMatchId())){
+            throw new IllegalStateException("Brak partii o id " + match.getMatchId());
+        }
 
+        for (MatchListener listener : spectators.get(match.getMatchId()).values()) {
+            listener.onStatusChanged(match, status);
+        }
     }
 
     /**
@@ -84,9 +104,18 @@ public class SpectateManager implements MatchListener{
      * @param result 
      * @return
      */
+    @Override
     public void onMatchFinished(Match match, MatchResult result) {
-        // TODO implement here
+        if (!activeMatches.containsKey(match.getMatchId())){
+            throw new IllegalStateException("Brak partii o id " + match.getMatchId());
+        }
 
+        for (MatchListener listener : spectators.get(match.getMatchId()).values()) {
+            listener.onMatchFinished(match, result);
+        }
+
+        activeMatches.remove(match.getMatchId());
+        spectators.remove(match.getMatchId());
     }
 
     /**
@@ -94,8 +123,12 @@ public class SpectateManager implements MatchListener{
      * @return
      */
     public List<Match> getActiveMatches(Admin admin) {
-        // TODO implement here
-        return null;
+        if (admin == null){
+            throw new NullPointerException("Operacja jest dostępna tylko administratorowi");    // na diagramie warstwy to bylo, bo chodzilo o pokazanie logiki niezaleznie od technolohii implementacji
+                                                                                                // (akurat w springu bede to prawdziwie implementowal za pomoca sprawdzania endpointu czy rola jest admin)
+        }
+
+        return List.copyOf(activeMatches.values());
     }
 
 }
