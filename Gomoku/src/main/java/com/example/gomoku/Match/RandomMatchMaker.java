@@ -4,7 +4,7 @@ import com.example.gomoku.GameCore.ColorType;
 import com.example.gomoku.UsersAuthAndStatistics.Leaderboard;
 import com.example.gomoku.UsersAuthAndStatistics.RatingCalculator;
 import com.example.gomoku.UsersAuthAndStatistics.User;
-import com.example.gomoku.UsersAuthAndStatistics.UserActivity;
+import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -13,16 +13,12 @@ import java.util.*;
 /**
  * 
  */
+//@Component
 public class RandomMatchMaker {
-    public RandomMatchMaker() {
-    }
-
     private Queue currentQueue;
     private SpectateManager spectateManager;
     private Leaderboard leaderboard;
     private RatingCalculator ratingCalculator;
-    private int currentUserRating;
-    private User currentUser;
 
     public RandomMatchMaker(SpectateManager spectateManager, Leaderboard leaderboard, RatingCalculator rT) {
         this.currentQueue = new Queue();
@@ -31,75 +27,99 @@ public class RandomMatchMaker {
         this.ratingCalculator = rT;
     }
 
-    public void joinQueue(User user) {
+    public synchronized void joinQueue(User user) {
         currentQueue.addUser(user);
     }
 
-    public void leaveQueue(User user) {
+    public synchronized void leaveQueue(User user) {
         currentQueue.removeUser(user);
     }
 
-    public void searchForSimilarRating() {
-        List<Map.Entry<User, Instant>> entryList = new ArrayList<>(currentQueue.getAll().entrySet());
-        LinkedHashMap<User, Instant> result = new LinkedHashMap<>();
+    public synchronized List<HumanMatch> searchForSimilarRating() {
+        List<HumanMatch> foundMatches = new ArrayList<>();
 
-        Instant now = Instant.now();
+        List<Map.Entry<User, Instant>> entryList = new ArrayList<>(currentQueue.getAll().entrySet());
 
         entryList.sort(Map.Entry.comparingByValue());
 
-        for (Map.Entry<User, Instant> entry : entryList) {
-            result.put(entry.getKey(), entry.getValue());
-        }
+        while (!entryList.isEmpty()) {
+            Instant now = Instant.now();
+            User firstUser = entryList.getFirst().getKey();
+            Duration firstUserTimeWaiting = Duration.between(entryList.getFirst().getValue(), now);
+            int firstUserRating = leaderboard.getRating(firstUser);
+            int firstUserRatingLimit = getRatingLimit(firstUserTimeWaiting);
 
-        int index = 0;
+            int index = 0;
+            boolean matched = false;
 
-        for (Map.Entry<User, Instant> entry : result.entrySet()) {
-            Duration currentTimeWaiting = Duration.between(Instant.now(), entry.getValue());
+            for (Map.Entry<User, Instant> entry : entryList) {
 
-            if (currentTimeWaiting.toSeconds() > 30){
-                if (currentTimeWaiting.toSeconds() > 60){
-                    if (currentTimeWaiting.toSeconds() > 120){
-                        if (currentTimeWaiting.toSeconds() > 350){
 
-                        }
+                if (index > 0) {
+                    User currentUser = entry.getKey();
+                    int currentUserRating = leaderboard.getRating(entry.getKey());
+                    Duration currentUserTimeWaiting = Duration.between(entry.getValue(), now);
+                    int currentUserRatingLimit = getRatingLimit(currentUserTimeWaiting);
 
+                    int mutualLimit = Math.min(firstUserRatingLimit, currentUserRatingLimit);
+
+                    if (Math.abs(firstUserRating - currentUserRating) <= mutualLimit) {
+                        matched = true;
+
+                        foundMatches.add(startMatchWhenFoundOpponents(true, firstUser, currentUser, spectateManager));
+
+                        entryList.remove(entryList.getFirst());
+                        entryList.remove(entry);
+
+                        currentQueue.removeUser(firstUser);
+                        currentQueue.removeUser(currentUser);
+
+                        break;
                     }
+
                 }
 
-            }
-
-            boolean pairMatched = false;
-
-            if (index != 0){
-                int ratingLocalUserRating = leaderboard.getRating(entry.getKey());
-
-                if (Math.abs(ratingLocalUserRating - currentUserRating) <= 15){
-                    User localUser = entry.getKey();
-
-                    startMatchWhenFoundOpponents(true, localUser, currentUser, spectateManager);
-
-                    currentQueue.removeUser(localUser);
-                    currentQueue.removeUser(currentUser);
-
-                    pairMatched = true;
+                if (index == 0) {
+                    index++;
                 }
-
             }
 
-
-            if (index == 0){
-                index++;
-            }
-
-            if (!pairMatched){
-                currentUserRating = leaderboard.getStatisticsOf(entry.getKey()).getRating();
-                currentUser = entry.getKey();
+            if (!matched) {
+                entryList.remove(entryList.getFirst());
             }
 
         }
+
+        return foundMatches;
     }
 
-        public HumanMatch startMatchWhenFoundOpponents ( boolean isRated, User firstUser, User
+    private static int getRatingLimit(Duration currentTimeWaiting) {
+        int ratingLimit = 15;
+
+        if (currentTimeWaiting.toSeconds() >= 600){
+            return 500;
+        }
+
+        if (currentTimeWaiting.toSeconds() >= 350){
+            return 150;
+        }
+
+        if (currentTimeWaiting.toSeconds() >= 120){
+            return 100;
+        }
+
+        if (currentTimeWaiting.toSeconds() >= 60){
+            return 60;
+        }
+
+        if (currentTimeWaiting.toSeconds() >= 30){
+            return 30;
+        }
+
+        return ratingLimit;
+    }
+
+    public HumanMatch startMatchWhenFoundOpponents ( boolean isRated, User firstUser, User
         secondUser, SpectateManager sM){
             Duration timePerRound = Duration.ofMinutes(3);
 
