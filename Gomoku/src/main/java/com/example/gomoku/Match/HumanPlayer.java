@@ -13,16 +13,6 @@ import lombok.*;
  * 
  */
 public class HumanPlayer extends Player {
-
-    /**
-     * Default constructor
-     */
-    public HumanPlayer() {
-    }
-
-    /**
-     * 
-     */
     private User user;
 
     /**

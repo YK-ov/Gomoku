@@ -6,102 +6,51 @@ import com.example.gomoku.GameCore.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import lombok.*;
 
 @Getter
 @Setter
 
-/**
- * 
- */
 public abstract class Match {
     protected boolean isRated;
 
-    /**
-     * 
-     */
     private List<Player> playersInMatch;
 
-    /**
-     * 
-     */
     private MatchStatus status;
 
-    /**
-     * 
-     */
     private ColorType currentTurn;
 
-    /**
-     * 
-     */
     private List<Move> moveHistory;
 
-    /**
-     * 
-     */
     private List<MatchListener> listeners;
 
-    /**
-     * 
-     */
     private LocalDateTime startedAt;
 
-    /**
-     * 
-     */
     private LocalDateTime endedAt;
 
-    /**
-     * 
-     */
     private MatchEndReason endReason;
 
-    /**
-     * 
-     */
     private int maxMissedTurns;
 
-    /**
-     * 
-     */
     private Board board;
 
-    /**
-     * 
-     */
     private Timer timer;
 
-    /**
-     * 
-     */
     private MatchResult result;
 
-    /**
-     * 
-     */
     private String matchId;
 
-    /**
-     * 
-     */
     private SpectateManager spectateManager;
 
+    private static int BOARD_SIZE = 1000;
 
-
-
-
-    /**
-     * @param timePerRound 
-     * @param isRated 
-     * @param sMr
-     */
     public Match(Duration timePerRound, boolean isRated, SpectateManager sMr) {
-        this.board = new Board(1000);
+        this.board = new Board(BOARD_SIZE);
         this.playersInMatch = new ArrayList<>(2);
         this.moveHistory = new ArrayList<>();
-        this.listeners = new ArrayList<>();
+        this.listeners = new CopyOnWriteArrayList<>();
 
         this.timer = new Timer(timePerRound);
         this.isRated = isRated;
@@ -109,14 +58,26 @@ public abstract class Match {
         this.matchId = UUID.randomUUID().toString();
     }
 
-    /**
-     * @param player 
-     * @param move 
-     * @return
-     */
     public MoveResult submitMove(Player player, Move move) {
-
-
+//        if (currentTurn != player.getColor()) {
+//            return MoveResult.NotYourTurn;
+//        }
+//
+//        if (!board.isValidMove(move)){
+//            return MoveResult.Illegal;
+//        }
+//
+//        if (!board.isLegal(move)) {
+//            return MoveResult.Illegal;
+//        }
+//
+//        moveHistory.add(move);
+//
+//        if (board.hasFiveInRow(move)) {
+//            return MoveResult.MatchOver;
+//        }
+//
+//        return MoveResult.Accepted;
         return null;
     }
 
