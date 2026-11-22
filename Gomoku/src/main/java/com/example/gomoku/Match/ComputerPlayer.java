@@ -14,16 +14,6 @@ import lombok.*;
  * 
  */
 public class ComputerPlayer extends Player {
-
-    /**
-     * Default constructor
-     */
-    public ComputerPlayer() {
-    }
-
-    /**
-     * 
-     */
     private Difficulty difficulty;
 
     /**

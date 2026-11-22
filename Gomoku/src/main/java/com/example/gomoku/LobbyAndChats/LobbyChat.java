@@ -1,39 +1,26 @@
 package com.example.gomoku.LobbyAndChats;
 
 import com.example.gomoku.UsersAuthAndStatistics.Account;
+import com.example.gomoku.UsersAuthAndStatistics.User;
+import com.example.gomoku.UsersAuthAndStatistics.UserActivity;
 
-/**
- * 
- */
 public class LobbyChat extends Chat {
-
-//    /**
-//     * Default constructor
-//     */
-//    public LobbyChat() {
-//    }
-//
-//
-//    /**
-//     *
-//     */
     public LobbyChat() {
-        // TODO implement here
+        super();
     }
 
-    /**
-     * @param account 
-     * @return
-     */
+    @Override
     public boolean canAccountUseChat(Account account) {
-        // TODO implement here
-        return false;
+        if (!account.canLogin()){
+            return false;
+        }
+
+        if (account.getClass() == User.class) {
+            if (((User) account).getActivity() != UserActivity.InMatch){
+                return false;
+            }
+        }
+
+        return true;
     }
-
-    /**
-     * @param account 
-     * @return
-     */
-    //public abstract boolean canAccountUseChat(Account account);
-
 }

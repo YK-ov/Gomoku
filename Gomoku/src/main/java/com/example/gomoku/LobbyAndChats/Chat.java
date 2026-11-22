@@ -8,10 +8,6 @@ import org.springframework.security.access.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.*;
 
-/**
- * 
- */
-
 public abstract class Chat {
     public Chat() {
         this.messages = new ArrayList<>();
@@ -50,6 +46,13 @@ public abstract class Chat {
 
     public void close() {
         isOpen = false;
+    }
+
+    protected synchronized Message sendSystemMessage(String text){
+        Message message = new Message(null, text, LocalDateTime.now());
+        messages.add(message);
+
+        return message;
     }
 
     public synchronized List<Message> getMessages() {

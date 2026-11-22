@@ -2,63 +2,31 @@ package com.example.gomoku.LobbyAndChats;
 
 import com.example.gomoku.UsersAuthAndStatistics.Account;
 
-/**
- * 
- */
 public class PrivateChat extends Chat {
-
-    /**
-     * Default constructor
-     */
-    public PrivateChat() {
-    }
-
-    /**
-     * 
-     */
     private Account first;
 
-    /**
-     * 
-     */
     private Account second;
 
-
-    /**
-     * @param first 
-     * @param second
-     */
     public PrivateChat(Account first, Account second) {
+        super();
         this.first = first;
         this.second = second;
     }
 
-    /**
-     * @param a 
-     * @param b 
-     * @return
-     */
     public boolean isBetween(Account a, Account b) {
-        if (first.equals(a) && second.equals(b)) {
+        if ((first.equals(a) && second.equals(b)) || (first.equals(b) && second.equals(a))) {
             return true;
         }
 
         return false;
     }
 
-    /**
-     * @param account 
-     * @return
-     */
     public boolean canAccountUseChat(Account account) {
-        // TODO implement here
+        if (account.equals(first) || account.equals(second)) {
+            return true;
+        }
+
         return false;
     }
-
-    /**
-     * @param account 
-     * @return
-     */
-    //public abstract boolean canAccountUseChat(Account account);
 
 }

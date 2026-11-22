@@ -6,9 +6,6 @@ import java.util.*;
 import jakarta.persistence.*;
 import lombok.*;
 
-/**
- * 
- */
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,23 +21,12 @@ public abstract class Account {
     @Column(name = "nick_name", unique = true, nullable = false)
     private String nickName;
 
-    /**
-     * 
-     */
     @Column(name = "hashed_password", nullable = false)
     private String hashedPassword;
 
-    /**
-     * 
-     */
     @Id
     private String id;
 
-
-    /**
-     * @param nickName 
-     * @param hashedPassword
-     */
     public Account(String nickName, String hashedPassword) {
         this.nickName = nickName;
         this.hashedPassword = hashedPassword;
@@ -48,10 +34,17 @@ public abstract class Account {
         this.id = UUID.randomUUID().toString();
     }
 
-
-    /**
-     * @return
-     */
     public abstract boolean canLogin();
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(id, account.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

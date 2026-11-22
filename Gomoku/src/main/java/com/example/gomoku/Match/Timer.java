@@ -9,9 +9,6 @@ import java.util.*;
 import lombok.*;
 
 public class Timer {
-    public Timer() {
-    }
-
     private Duration timerPerRound;
     private Instant deadline;
     private Duration remaining;
@@ -19,20 +16,25 @@ public class Timer {
 
     public Timer(Duration timePerRound) {
         this.timerPerRound = timePerRound;
+        this.remaining = timerPerRound;
     }
 
-    public void start() {
+    public synchronized void start() {
         this.remaining = timerPerRound;
         this.deadline = Instant.now().plus(timerPerRound);
         this.isRunning = true;
     }
 
-    public void stop() {
-        this.isRunning = false;
+    public synchronized void stop() {
+        if (isRunning){
+            this.remaining = getRemaining();
+            this.isRunning = false;
+        }
+
     }
 
-    public boolean isExpired() {
-        if (Instant.now().isAfter(deadline)) {
+    public synchronized boolean isExpired() {
+        if (getRemaining().isZero()) {
             return true;
         }
 
@@ -53,7 +55,7 @@ public class Timer {
         return left;
     }
 
-    public void resume() {
+    public synchronized void resume() {
         if (!isRunning && !remaining.isZero()){
             this.deadline = Instant.now().plus(remaining);
             this.isRunning = true;

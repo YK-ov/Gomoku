@@ -3,58 +3,32 @@ package com.example.gomoku.LobbyAndChats;
 import com.example.gomoku.UsersAuthAndStatistics.Account;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * 
- */
 public class GroupChat extends Chat {
-
-//    /**
-//     * Default constructor
-//     */
-//    public GroupChat() {
-//    }
-//
-//    /**
-//     *
-//     */
     private List<Account> members;
 
-
-    /**
-     * 
-     */
     public GroupChat() {
-        this.members = new ArrayList<>();
+        super();
+        this.members = new CopyOnWriteArrayList<>();
     }
 
-    /**
-     * @param account
-     */
     public void addMember(Account account) {
         members.add(account);
     }
 
-    /**
-     * @param account
-     */
     public void removeMember(Account account) {
         members.remove(account);
     }
 
-    /**
-     * @param account 
-     * @return
-     */
+    @Override
     public boolean canAccountUseChat(Account account) {
-        // TODO implement here
+        if (members.contains(account)) {
+            return true;
+        }
+
         return false;
     }
 
-    /**
-     * @param account 
-     * @return
-     */
-    //public abstract boolean canAccountUseChat(Account account);
 
 }

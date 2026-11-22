@@ -4,65 +4,43 @@ import com.example.gomoku.UsersAuthAndStatistics.User;
 
 import java.time.LocalDateTime;
 
-/**
- * 
- */
 public class Invitation {
-
-    /**
-     * Default constructor
-     */
-    public Invitation() {
-    }
-
-    /**
-     * 
-     */
     private User inviter;
 
-    /**
-     * 
-     */
     private User invitee;
 
-    /**
-     * 
-     */
     private InviteStatus status;
 
-    /**
-     * 
-     */
     private LocalDateTime expiresAt;
 
-    /**
-     * @return
-     */
-    public Group accept() {
-        // TODO implement here
-        return null;
+    public synchronized Group accept() {
+        if (isExpired() || status != InviteStatus.Pending){
+            throw new IllegalStateException("Takie zaproszenie do grupy nie istnieje");
+        }
+
+        status = InviteStatus.Accepted;
+
+        return new Group(inviter, invitee);
     }
 
-    /**
-     * @return
-     */
-    public void decline() {
-        // TODO implement here
+    public synchronized void decline() {
+        status = InviteStatus.Declined;
+    }
+
+    public synchronized boolean isExpired() {
+        if (status == InviteStatus.Pending && expiresAt.isBefore(LocalDateTime.now())){
+            status = InviteStatus.Pending;
+        }
+
+        if (status == InviteStatus.Expired) {
+            return true;
+        }
+        else {
+            return false;
+        }
 
     }
 
-    /**
-     * @return
-     */
-    public boolean isExpired() {
-        // TODO implement here
-        return false;
-    }
-
-    /**
-     * @param inviter 
-     * @param invitee
-     */
     public Invitation(User inviter, User invitee) {
         this.inviter = inviter;
         this.invitee = invitee;

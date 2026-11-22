@@ -4,9 +4,6 @@ import com.example.gomoku.UsersAuthAndStatistics.Account;
 
 import java.util.*;
 
-/**
- * 
- */
 public class ActiveAccountsBoard {
 
 //    /**
@@ -32,7 +29,6 @@ public class ActiveAccountsBoard {
      * @return
      */
     public void refresh() {
-        // TODO implement here
 
     }
 
