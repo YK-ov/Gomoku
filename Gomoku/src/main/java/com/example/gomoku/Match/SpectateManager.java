@@ -3,6 +3,7 @@ package com.example.gomoku.Match;
 import com.example.gomoku.GameCore.MatchResult;
 import com.example.gomoku.GameCore.Move;
 import com.example.gomoku.UsersAuthAndStatistics.Admin;
+import com.example.gomoku.UsersAuthAndStatistics.User;
 import org.springframework.stereotype.Component;
 
 import java.util.*;

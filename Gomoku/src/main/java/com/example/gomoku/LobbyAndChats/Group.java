@@ -5,14 +5,12 @@ import com.example.gomoku.Match.HumanMatch;
 import com.example.gomoku.Match.SpectateManager;
 import com.example.gomoku.UsersAuthAndStatistics.RatingCalculator;
 import com.example.gomoku.UsersAuthAndStatistics.User;
-import lombok.Getter;
 
 import java.nio.file.AccessDeniedException;
 import java.time.Duration;
 import java.util.*;
 import java.util.List;
 
-@Getter
 public class Group {
     private Map<User, ColorType> host;
 
@@ -254,6 +252,50 @@ public class Group {
         }
 
         this.isRated = isRated;
+    }
+
+    public synchronized User getHostUser(){
+        if (!host.isEmpty()){
+            return host.keySet().iterator().next();
+        }
+
+        return null;
+    }
+
+    public synchronized ColorType getHostColor(){
+        if (!host.isEmpty()){
+            return host.values().iterator().next();
+        }
+
+        return null;
+    }
+
+    public synchronized User getGuestUser(){
+        if (!guest.isEmpty()){
+            return guest.keySet().iterator().next();
+        }
+
+        return null;
+    }
+
+    public synchronized ColorType getGuestColor(){
+        if (!guest.isEmpty()){
+            return guest.values().iterator().next();
+        }
+
+        return null;
+    }
+
+    public synchronized boolean isRated() {
+        return isRated;
+    }
+
+    public synchronized Duration getTimePerRound() {
+        return timePerRound;
+    }
+
+    public GroupChat getGroupChat() {
+        return groupChat;
     }
 
 }
